@@ -1,0 +1,21 @@
+std::vector<int> alternatingSums(std::vector<int> a) 
+{
+    vector<int> output;
+    int flag =0,sum1=0,sum2=0;
+    for(int i=0;i<a.size(); i++)
+    {
+        if(flag==0)
+        {
+            sum1 += a[i];
+            flag=1;
+        }
+        else
+        {
+            sum2 += a[i];
+            flag=0;
+        }
+    }
+    output.push_back(sum1);
+    output.push_back(sum2);
+    return output;
+}

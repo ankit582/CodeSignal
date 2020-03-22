@@ -1,0 +1,28 @@
+std::vector<std::string> addBorder(std::vector<std::string> picture) 
+{
+    std::vector<std::string> output;
+    int len = picture[0].length();
+    std::string temp;
+    len +=2;
+    int len1 =picture.size()+2;
+    for(int i=0;i<len1;i++)
+    {
+        for(int j=0;j<len;j++)
+        {
+            if(i==0 || i==len1-1)
+            {
+                temp += "*";
+            }
+            else 
+            {
+                if(j==0 || j==len-1)
+                    temp += "*";
+                else
+                    temp += picture[i-1][j-1];
+            }
+        }
+        output.push_back(temp);
+        temp="";
+    }
+    return output;
+}

@@ -1,0 +1,7 @@
+int centuryFromYear(int year) 
+{
+    int temp = year / 100;
+    if(year % 100 > 0)
+        temp++;
+    return temp;
+}

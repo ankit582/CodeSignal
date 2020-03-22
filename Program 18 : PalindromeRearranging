@@ -1,0 +1,28 @@
+bool palindromeRearranging(std::string inputString) 
+{
+    int flag=0;
+    int count1=0;
+    int restrictedArray[inputString.length()];
+    for(int i=0; i<(inputString.length()-1); i++)
+    {
+        for(int j=i+1; j<inputString.length(); j++)
+        {
+            int temp = count(restrictedArray,restrictedArray+count1,i);
+            if(temp < 1)            
+            {
+                if(inputString[i]==inputString[j])
+                {
+                    flag =flag+2;
+                    restrictedArray[count1]=j;
+                    count1++;
+
+                    break;
+                }
+            }
+        }             
+    }
+    if (flag == inputString.length() || flag == inputString.length()-1)
+        return true;    
+    else
+        return false;
+}

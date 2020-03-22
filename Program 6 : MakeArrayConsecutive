@@ -1,0 +1,22 @@
+int makeArrayConsecutive2(std::vector<int> statues) 
+{
+    int len = statues.size();
+    for(int i=0; i<len; i++)
+    {
+        for(int j=i;j<len;j++)
+        {
+            if(statues[i]>statues[j])
+            {
+                int temp = statues [i];
+                statues[i] = statues[j];
+                statues[j] = temp;
+            }
+        }
+    }
+    int noofstatues=0;
+    for(int i=0; i<len-1; i++)
+    {
+        noofstatues += (statues[i+1]-statues[i]-1);
+    }
+    return noofstatues;
+}

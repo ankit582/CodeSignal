@@ -1,0 +1,35 @@
+bool areSimilar(std::vector<int> a, std::vector<int> b) 
+{
+    int lenA = a.size();
+    int lenB = b.size();
+    int count=0, tempA1, tempA2, tempB1, tempB2;
+    for(int i=0; i<lenA; i++)
+    {
+        if(a[i] != b[i])
+        {
+            if(count == 0)
+            {
+                tempA1 = a[i];
+                tempB1 = b[i];
+                
+            }
+            else if(count == 1)
+            {
+                tempA2 = a[i];
+                tempB2 = b[i];
+            }
+            count++;
+        }
+    }
+    if(count==0)
+        return true;
+    if (count>2)
+        return false;
+    else
+    {
+        if(tempA1==tempB2 && tempA2==tempB1)
+            return true;
+        else
+            return false;
+    }
+}

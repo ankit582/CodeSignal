@@ -1,0 +1,26 @@
+bool almostIncreasingSequence(std::vector<int> sequence) 
+{
+    bool available = true;               
+    int last = sequence.size() - 1;
+    for ( int i = 1; i <= last; i++ )
+    {
+        if ( sequence[i] <= sequence[i-1] )                        
+        {                                              
+            if ( !available ) 
+                return false;            
+            if ( i == last )  
+                return true;             
+
+            if ( i > 1 )                               
+            {
+                bool ok = ( sequence[i-2] < sequence[i-1] && sequence[i-1] < sequence[i+1] )  
+                      ||  ( sequence[i-2] < sequence[i] && sequence[i] < sequence[i+1] );
+                if ( !ok ) 
+                    return false;                
+            }
+            available = false;                         
+        }
+    }
+    return true;
+}
+

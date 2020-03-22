@@ -1,0 +1,35 @@
+std::string reverseInParentheses(std::string inputString) 
+{
+    string temp="",oppTemp;
+    for(int i=0; i<inputString.length(); i++)
+    {
+        if (inputString[i] == '(')
+        {
+            int lastpos;
+            for(int j=i; j<inputString.length(); j++)
+            {
+                if(inputString[j]=='(')
+                {
+                    temp="";
+                    lastpos = j;
+                }
+                else if(inputString[j]==')')
+                {
+                    for (int k=temp.length(); k>0; k--)
+                    {
+                        oppTemp += temp[k-1];
+                    }
+                    temp = "(" + temp + ")";
+                    inputString.replace(lastpos,temp.length(),oppTemp);
+                    oppTemp="";
+                    j=i-1;
+                }
+                else 
+                {
+                    temp += inputString[j];
+                }
+            }
+        }
+    }
+    return inputString;
+}

@@ -1,1 +1,15 @@
+int depositProfit(int deposit, int rate, int threshold) 
+{
+    float year = 0.0;
+    float deposit1=float(deposit);
+    float rate1=float(rate)/100.0;
+    float threshold1=float(threshold);
+    year = (log(threshold1/deposit1))/(log(1.0+rate1));
+    float whole, fractional;
+    fractional = std::modf(year, &whole);
+    cout<<fractional;
+    if(fractional>0.00001)
+        whole++; 
 
+    return whole;
+}

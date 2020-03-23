@@ -1,1 +1,6 @@
+int circleOfNumbers(int n, int firstNumber) 
+{
+    int half = n/2;
+    return ((firstNumber>=half)? (firstNumber - half) : (firstNumber + half));
+}
 

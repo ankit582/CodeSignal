@@ -1,1 +1,50 @@
+bool isIPv4Address(std::string inputString) 
+{
+    int count = 0;
+    string temp="";
+    temp.clear();
+    for(int i=0; i<inputString.length(); i++)
+    {
+        if(inputString[i] == '.')
+        {
+            count++;
+            if (temp.length() < 1)
+                return false;
+
+            stringstream geek(temp); 
+  
+            int temp1 = 0; 
+            geek >> temp1;
+
+            if (temp1<0 || temp1>255)
+                return false;
+
+            temp="";
+        }           
+        else 
+        {
+            if(inputString[i] == '0')
+            {
+                if(i!=inputString.length()-1 && inputString[i+1] != '.')
+                    return false;
+            }
+            if(inputString[i] > 47 && inputString[i] < 58)
+                temp+=inputString[i];
+            else
+                return false;
+                
+        }
+    }
+    if(count != 3)
+        return false;
+    stringstream geek(temp); 
+  
+    int temp1 = 0; 
+    geek >> temp1;
+
+    if (temp1<0 || temp1>255)
+        return false;
+    
+    return true;
+}
 

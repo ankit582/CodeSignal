@@ -1,1 +1,20 @@
+std::vector<std::vector<int>> boxBlur(std::vector<std::vector<int>> image) 
+{
+    int a=0, b=0;
+    int rows = image.size();
+    int columns = image[0].size();
+    std::vector<std::vector<int>> output(rows-2, vector<int>(columns-2));;
+    for(int i=1; i<rows-1; i++)
+    {
+        for(int j=1; j<columns-1; j++)
+        {
+            int sum = image[i-1][j-1] + image[i-1][j] +image[i-1][j+1] + image[i][j-1] + image[i][j] + image[i][j+1] + image[i+1][j-1] + image[i+1][j] +image[i+1][j+1];
+            output[a][b] = sum/9;
+            b++;
+        }
+        b=0;
+        a++;
+    }
+    return output;
+}
 

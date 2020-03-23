@@ -1,1 +1,28 @@
+int avoidObstacles(std::vector<int> inputArray) 
+{
+    int largest = inputArray[0];
+    for(int j=1; j<inputArray.size(); j++)
+    {
+        if(inputArray[j]>largest)
+            largest=inputArray[j];
+    }
+    int minjump = 2;
+    int i=0;
+    while(minjump>0)
+    {
+        for(int j=0; j<inputArray.size(); j++)
+        {
+            if(inputArray[j]==i)
+            {
+                minjump++;
+                i=0;
+                break;
+            }
+            if(i > largest)
+                return minjump;
+            
+        }
+        i += minjump;
+    }
+}
 
